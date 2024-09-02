@@ -8,7 +8,17 @@
 
 ---
 
-## 🌟 **Features**
+## Table of Contents
+
+* [Features](#-features)
+* [Installation](#-installation)
+* [Usage](#-usage)
+* [Contributing](#-contributing)
+* [Show your support](#-show-your-support)
+
+---
+
+## 🌟 Features
 
 - **Automated Commit Messages**: Generate commit messages based on your staged changes using Google's AI model.
 - **Supports Conventional Commit Types**: Suggestions follow the standard commit types (`feat`, `fix`, `build`, `chore`, etc.).
@@ -17,7 +27,7 @@
 
 ---
 
-## 📦 **Installation**
+## 📦 Installation
 
 To set up **Comsu** on your Linux system, follow these steps:
 
@@ -44,7 +54,7 @@ To set up **Comsu** on your Linux system, follow these steps:
 
 ---
 
-## 🚀 **Usage**
+## 🚀 Usage
 
 Once installed, you can run **Comsu** from any directory where you have staged changes:
 
@@ -74,14 +84,14 @@ Suggested Commit Messages:
 
 ---
 
-## ⚙️ **Configuration**
+## ⚙️ Configuration
 
 
 The prompt used to generate the commit messages is stored in a file named prompt located at /usr/local/share/comsu/prompt. You can modify this file to change the way AI generates the commit messages.
 
 ---
 
-## 🤝 **Contributing**
+## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
 
@@ -93,6 +103,6 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ---
 
-## 🌟 **Show Your Support**
+## 🌟 Show your support
 
 If you find this tool helpful, please give a ⭐ to the repository!
