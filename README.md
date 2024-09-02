@@ -1,6 +1,6 @@
 # 🚀 **Comsu** - AI-Powered(wrapper) Commit Message Generator
 
-![License](https://img.shields.io/badge/License-GNUv3-blue.svg)
+![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
 ![Shell](https://img.shields.io/badge/Shell-Bash-green.svg)
 ![Google Generative AI](https://img.shields.io/badge/AI-Google%20Generative%20AI-yellow.svg)
 
