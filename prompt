@@ -1,0 +1,14 @@
+Suggest 5 concise commit messages for the following changes in my project.
+Use the format: `type: commit message` where `type` can be one of the following based on the nature of the changes:
+- `feat`: for adding new features
+- `fix`: for fixing bugs, typos, or issues
+- `chore`: for maintenance or non-functional changes
+- `style`: for code style changes (formatting, missing semi colons, etc.)
+- `ref`: for code refactoring
+- `perf`: for performance improvements
+- `docs`: for documentation updates
+- `build`: for changes that affect the build system or dependencies
+- `ci/cd`: for changes to CI/CD configuration files and scripts
+Please strictly follow the `type` guidelines based on the description of the changes,
+and return only the commit messages without additional explanations and don't return my changes to me again just the commit message.
+i only want to see your suggested commit messages in the top of your response.
