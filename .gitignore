@@ -1,0 +1,40 @@
+# Ignore environment variable files
+.env
+.env.*
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Ignore log files
+*.log
+
+# Ignore installation artifacts
+install.log
+install.err
+
+# Ignore backup files
+*.bak
+*~
+
+# Ignore any temporary files
+*.tmp
+*.swp
+*.swo
+
+# Ignore macOS system files
+*.DS_Store
+
+# Ignore files created by shell script
+*.sh~
+
+# Ignore any other user-specific or environment-specific files
+*.local
+*.envrc
+
