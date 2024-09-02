@@ -16,13 +16,14 @@ if [ ! -d "$SHARE_DIR" ]; then
     sudo mkdir -p "$SHARE_DIR"
 fi
 
-# Copy prompt.txt to the shared directory
-echo "Copying prompt.txt to $SHARE_DIR..."
-sudo cp prompt.txt "$SHARE_DIR/"
+# Copy prompt to the shared directory
+echo "Copying prompt file to $SHARE_DIR..."
+sudo cp prompt "$SHARE_DIR/"
 
 # Make comsu.sh executable and copy it to /usr/local/bin
 echo "Installing comsu script to /usr/local/bin..."
-sudo cp comsu.sh /usr/local/bin/comsu
+sudo cp comsu /usr/local/bin/comsu
 sudo chmod +x /usr/local/bin/comsu
 
+echo
 echo "Installation complete. You can now run 'comsu' command."
