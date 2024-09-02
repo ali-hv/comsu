@@ -60,6 +60,7 @@ main() {
     # If there are no changes, exit the script
     if [ -z "$changes" ]; then
         echo "No staged changes found."
+        echo "You should first add at least one file to stage"
         exit 1
     fi
 

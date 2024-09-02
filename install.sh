@@ -26,4 +26,4 @@ sudo cp comsu /usr/local/bin/comsu
 sudo chmod +x /usr/local/bin/comsu
 
 echo
-echo "Installation complete. You can now run 'comsu' command."
+echo "Installation completed. You can now run 'comsu' command."
