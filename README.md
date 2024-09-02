@@ -1,8 +1,26 @@
-# 🚀 **Comsu** - AI-Powered(wrapper) Commit Message Generator
+<h1 align="center">
+  <br>
+  <a href="http://test.com">
+      <img src="http://test.png" alt="Comsu" width="200">
+  </a>
+  <br>
+  Comsu
+  <br>
+</h1>
 
-![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
-![Shell](https://img.shields.io/badge/Shell-Bash-green.svg)
-![Google Generative AI](https://img.shields.io/badge/AI-Google%20Generative%20AI-yellow.svg)
+<h3 align="center">🚀 AI-Powered(wrapper) Commit Message Generator</h3>
+
+<p align="center">
+    <a href="https://img.shields.io/badge/License-GPLv3-blue.svg">
+        <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
+    </a>
+    <a href="https://img.shields.io/badge/Shell-Bash-green.svg">
+        <img src="https://img.shields.io/badge/Shell-Bash-green.svg" />
+    </a>
+    <a href="https://img.shields.io/badge/AI-Google%20Generative%20AI-yellow.svg">
+        <img src="https://img.shields.io/badge/AI-Google%20Generative%20AI-yellow.svg" />
+    </a>
+</p>
 
 **Comsu** is a simple yet powerful command-line tool that leverages Google Generative AI to suggest high-quality, concise commit messages based on your staged changes in Git. Automate the process of writing meaningful commit messages and ensure consistency across your project.
 
