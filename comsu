@@ -48,7 +48,8 @@ generate_commit_messages() {
 
     # Extract and print the response text using jq
     echo "Suggested Commit Messages:"
-    echo "$response" | jq -r '.candidates[0].content.parts[0].text'
+    echo
+    echo "$response" | jq -r '.candidates[0].content.parts[0].text' | sed "s/\"/'/g" | sed 's/`/"/g'
 }
 
 # Main execution
