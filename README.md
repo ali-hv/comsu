@@ -1,11 +1,8 @@
 <h1 align="center">
   <br>
-  <a href="http://test.com">
-      <img src="http://test.png" alt="Comsu" width="200">
+  <a href="https://github.com/ali-hv/comsu/blob/main/assets/logo.png">
+      <img src="https://github.com/ali-hv/comsu/blob/main/assets/logo.png" alt="Comsu" width="400">
   </a>
-  <br>
-  Comsu
-  <br>
 </h1>
 
 <h3 align="center">🚀 AI-Powered(wrapper) Commit Message Generator</h3>
