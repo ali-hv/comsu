@@ -1,0 +1,122 @@
+#!/bin/bash
+
+# Define ANSI color codes
+RED='\033[0;31m'
+GRAY='\033[0;37m'
+GREEN='\033[0;32m'
+ICYAN='\033[0;96m'
+YELLOW='\033[1;33m'
+IYELLOW='\033[0;93m'
+NC='\033[0m' # No Color
+
+# Check if the API key environment variable is set
+if [[ -z "$GOOGLE_AI_STUDIO_API_KEY" ]]; then
+    echo -e "${YELLOW}Error: The GOOGLE_AI_STUDIO_API_KEY environment variable is not set.${NC}"
+    exit 1
+fi
+
+# URL of the Google Generative AI API endpoint
+API_URL="https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=$GOOGLE_AI_STUDIO_API_KEY"
+
+# Function to get the staged changes from Git
+get_staged_changes() {
+    # Get the staged changes using git diff --cached
+    changes=$(git diff --cached)
+
+    # Clean up changes: remove newlines and escape double quotes
+    clean_changes=$(echo "$changes" | sed ':a;N;$!ba;s/\n/ /g' | sed 's/"/\\"/g' | sed "s/'/\\'/g")
+
+    echo "$clean_changes"
+}
+
+# Function to generate commit messages using Google Generative AI
+generate_commit_messages() {
+    local changes="$1"
+    PROMPT_FILE="/usr/local/share/git-comsu/prompt"
+
+    # Check if the prompt file exists
+    if [[ ! -f "$PROMPT_FILE" ]]; then
+        echo "Error: $PROMPT_FILE file not found!"
+        exit 1
+    fi
+
+    # Load prompt from the file
+    prompt_template=$(< "$PROMPT_FILE")
+
+    # Combine the prompt with changes
+    prompt="${prompt_template} Changes: $changes"
+
+    # Prepare the JSON payload using the cleaned-up prompt
+    json_payload=$(jq -n --arg text "$prompt" '{"contents":[{"parts":[{"text":$text}]}]}')
+
+    # Make a request to the Google Generative AI API using curl
+    response=$(curl -s \
+      -H "Content-Type: application/json" \
+      -d "$json_payload" \
+      -X POST "$API_URL")
+
+    # Extract and print the response text using jq
+    suggested_messages=$(echo "$response" | jq -r '.candidates[0].content.parts[0].text' | sed "s/\"/'/g" | sed 's/`//g' | sed 's/- //g' )
+    echo "$suggested_messages"
+}
+
+# Function to prompt the user for their choice and commit the changes
+commit_message() {
+    local messages=("$@")
+    
+    # Display the messages with numbered options
+    for i in "${!messages[@]}"; do
+        echo -e "${IYELLOW}$((i+1)). ${messages[i]}${NC}"
+    done
+
+    # Prompt the user for their choice
+    echo
+    read -p "Write the message number you want to use (write 'x' to exit): " choice
+    echo
+
+    # Check the user's choice
+    if [[ "$choice" == "x" ]]; then
+        echo -e "${RED}Exiting without committing.${NC}"
+        exit 0
+    elif [[ "$choice" -gt 0 && "$choice" -le "${#messages[@]}" ]]; then
+        selected_message="${messages[$((choice-1))]}"
+        # Capture the output of the git commit command
+        commit_output=$(git commit -m "$selected_message" 2>&1)
+
+        # Print the git output in the desired color
+        echo -e "${GRAY}${commit_output}${NC}"
+        echo
+        echo -e "${GREEN}Committed successfully.${NC}"
+    else
+        echo -e "${RED}Invalid choice. Exiting without committing.${NC}"
+        exit 0
+    fi
+}
+
+# Main execution
+main() {
+    # Get the staged changes
+    changes=$(get_staged_changes)
+
+    # If there are no changes, exit the script
+    if [ -z "$changes" ]; then
+        echo -e "${YELLOW}No staged changes found.${NC}"
+        echo -e "${YELLOW}You should first add at least one file to stage.${NC}"
+        exit 1
+    fi
+
+    echo -e "${ICYAN}Generating the commit messages based on your changes ...${NC}"
+    echo
+
+    # Generate commit message suggestions
+    messages=$(generate_commit_messages "$changes")
+
+    # Convert multiline string of messages into an array
+    IFS=$'\n' read -r -d '' -a messages_array <<< "$messages"
+
+    # Ask the user to choose a message and commit it
+    commit_message "${messages_array[@]}"
+}
+
+# Run the main function
+main
