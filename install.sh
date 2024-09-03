@@ -26,4 +26,4 @@ sudo cp git-comsu /usr/local/bin/git-comsu
 sudo chmod +x /usr/local/bin/git-comsu
 
 echo
-echo "Installation completed. You can now run 'git-comsu' command."
+echo "Installation completed. You can now run 'git comsu' command."
