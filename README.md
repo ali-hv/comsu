@@ -113,7 +113,7 @@ Committed successfully.
 ## ⚙️ Configuration
 
 
-The prompt used to generate the commit messages is stored in a file named prompt located at /usr/local/share/comsu/prompt. You can modify this file to change the way AI generates the commit messages.
+The prompt used to generate the commit messages is stored in a file named prompt located at /usr/local/share/git-comsu/prompt. You can modify this file to change the way AI generates the commit messages.
 
 ---
 
