@@ -17,6 +17,10 @@
     <a href="https://img.shields.io/badge/AI-Google%20Generative%20AI-yellow.svg">
         <img src="https://img.shields.io/badge/AI-Google%20Generative%20AI-yellow.svg" />
     </a>
+    <br>
+    <a href="https://github.com/ali-hv/comsu/blob/main/assets/screenshot-1.png">
+      <img src="https://github.com/ali-hv/comsu/blob/main/assets/screenshot-1.png" alt="Comsu" width="700"/>
+    </a>
 </p>
 
 **Comsu** is a simple yet powerful command-line tool that leverages Google Generative AI to suggest high-quality, concise commit messages based on your staged changes in Git. Automate the process of writing meaningful commit messages and ensure consistency across your project.
@@ -36,6 +40,7 @@
 ## 🌟 Features
 
 - **Automated Commit Messages**: Generate commit messages based on your staged changes using Google's AI model.
+- **Auto Commit**: It can automatically commit your changes with your selected commit message. 
 - **Supports Conventional Commit Types**: Suggestions follow the standard commit types (`feat`, `fix`, `build`, `chore`, etc.).
 - **Easy Setup**: One-command installation to get started.
 - **Customizable Prompts**: Modify the prompt file to tailor the AI suggestions to your specific project needs.
@@ -74,27 +79,33 @@ To set up **Comsu** on your Linux system, follow these steps:
 Once installed, you can run **Comsu** from any directory where you have staged changes:
 
 ```bash
-comsu
+git comsu
 ```
 
-This will generate a list of suggested commit messages based on your changes.
+This will generate a list of suggested commit messages based on your changes and you can choose the message you want, then it will automatically commit your changes with that message. If you don't like any of the messages, you can type 'x' to exit.
 
 **Example**
 
 ```bash
 git add .
-comsu
+git comsu
 ```
 
 **Output**:
 
-```bash
-Suggested Commit Messages:
+```
+Generating the commit messages based on your changes ...
 
-- "ref: Refactor the get_staged_changes function for efficiency"
-- "ref: Update the get_staged_changes to reduce processing time"
-- "feat: Use new method for getting the changes in get_staged_changes"
+1. ref: Refactor the send_email function for efficiency
+2. ref: Update the send_email to reduce processing time
+3. feat: Use new method for getting the changes in send_email
 
+Write the message number you want to use (write 'x' to exit): 1
+
+[main 6b25961] ref: Refactor the send_email function for efficiency
+ 1 file changed, 1 deletion(-)
+
+Committed successfully.
 ```
 
 ---
