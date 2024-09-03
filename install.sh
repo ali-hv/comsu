@@ -10,7 +10,7 @@ else
 fi
 
 # Create a directory for shared files
-SHARE_DIR="/usr/local/share/comsu"
+SHARE_DIR="/usr/local/share/git-comsu"
 if [ ! -d "$SHARE_DIR" ]; then
     echo "Creating directory for shared files at $SHARE_DIR..."
     sudo mkdir -p "$SHARE_DIR"
@@ -20,10 +20,10 @@ fi
 echo "Copying prompt file to $SHARE_DIR..."
 sudo cp prompt "$SHARE_DIR/"
 
-# Make comsu.sh executable and copy it to /usr/local/bin
-echo "Installing comsu script to /usr/local/bin..."
-sudo cp comsu /usr/local/bin/comsu
-sudo chmod +x /usr/local/bin/comsu
+# Make git-comsu executable and copy it to /usr/local/bin
+echo "Installing git-comsu script to /usr/local/bin..."
+sudo cp git-comsu /usr/local/bin/git-comsu
+sudo chmod +x /usr/local/bin/git-comsu
 
 echo
-echo "Installation completed. You can now run 'comsu' command."
+echo "Installation completed. You can now run 'git-comsu' command."
