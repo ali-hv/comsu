@@ -98,11 +98,16 @@ To set up **Comsu** on your Windows system, follow these steps:
 4. **Set Your API Key**:
 
     Make sure you have your Google AI Studio API key set as an environment variable. If you don’t have one, you can create a free API key [here](https://aistudio.google.com/app/apikey).
+   
+    `Temporary Session Setting`: This method sets the environment variable only for the duration of your current Command Prompt session:
     ```powershell
     set GOOGLE_AI_STUDIO_API_KEY=your_api_key_here
     ```
-
-   You can add this line to your $PATH to make it persistent.
+    `Persistent Setting`: To make the environment variable persistent across sessions, you can use the following method, which sets the environment variable permanently for your user profile:
+    ```powershell
+    setx GOOGLE_AI_STUDIO_API_KEY "your_api_key_here"
+    ```
+   
 </details>
 
 ---
