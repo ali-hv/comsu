@@ -18,6 +18,8 @@ fi
 # URL of the Google Generative AI API endpoint
 API_URL="https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=$GOOGLE_AI_STUDIO_API_KEY"
 
+INSTALL_DIR="$(dirname "$(realpath "$0")")"
+
 # Function to get the staged changes from Git
 get_staged_changes() {
     # Get the staged changes using git diff --cached
@@ -32,7 +34,7 @@ get_staged_changes() {
 # Function to generate commit messages using Google Generative AI
 generate_commit_messages() {
     local changes="$1"
-    PROMPT_FILE="/usr/local/share/git-comsu/prompt"
+    PROMPT_FILE="${INSTALL_DIR:-/usr/local/share/git-comsu}/prompt"
 
     # Check if the prompt file exists
     if [[ ! -f "$PROMPT_FILE" ]]; then
