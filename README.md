@@ -49,6 +49,9 @@
 
 ## 📦 Installation
 
+<details>
+  <summary>Linux</summary>
+
 To set up **Comsu** on your Linux system, follow these steps:
 
 1. **Clone the Repository**:
@@ -72,15 +75,59 @@ To set up **Comsu** on your Linux system, follow these steps:
 
    You can add this line to your `~/.bashrc` or `~/.zshrc` to make it persistent.
 
+</details>
+
+
+<details>
+  <summary>Windows</summary>
+
+To set up **Comsu** on your Windows system, follow these steps:
+
+1. **Clone the Repository**:
+   open powershell as administrator, then write these commands:
+    ```powershell
+    git clone https://github.com/ali-hv/comsu.git
+    cd comsu
+    ```
+
+3. **Run the Installation Script**:
+    ```powershell
+    powershell -ExecutionPolicy Bypass -File install.ps1
+    ```
+
+4. **Set Your API Key**:
+
+    Make sure you have your Google AI Studio API key set as an environment variable. If you don’t have one, you can create a free API key [here](https://aistudio.google.com/app/apikey).
+    ```powershell
+    set GOOGLE_AI_STUDIO_API_KEY=your_api_key_here
+    ```
+
+   You can add this line to your $PATH to make it persistent.
+</details>
+
 ---
 
 ## 🚀 Usage
 
 Once installed, you can run **Comsu** from any directory where you have staged changes:
 
-```bash
-git comsu
-```
+<details>
+  <summary>Linux</summary>
+
+  ```bash
+  git comsu
+  ```
+</details>
+
+
+<details>
+  <summary>Windows</summary>
+
+  Run this in the cmd:
+  ```cmd
+  git-comsu
+  ```
+</details>
 
 This will generate a list of suggested commit messages based on your changes and you can choose the message you want, then it will automatically commit your changes with that message. If you don't like any of the messages, you can type 'x' to exit.
 
