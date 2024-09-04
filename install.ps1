@@ -1,17 +1,3 @@
-# Check if jq is installed; if not, install it
-if (-not (Get-Command jq -ErrorAction SilentlyContinue)) {
-    Write-Host "jq not found, installing..."
-    # Note: Windows doesn't have a built-in package manager like apt-get
-    # You might want to use Chocolatey or another package manager for Windows
-    # For this example, we'll just provide a download link
-    Write-Host "Please download and install jq from: https://stedolan.github.io/jq/download/"
-    Write-Host "After installing, make sure to add it to your PATH."
-    Pause
-}
-else {
-    Write-Host "jq is already installed."
-}
-
 # Create a directory for shared files
 $SHARE_DIR = "C:\git-comsu"
 if (-not (Test-Path $SHARE_DIR)) {
@@ -33,5 +19,5 @@ $BATCH_CONTENT = "@echo off`npowershell.exe -ExecutionPolicy Bypass -File `"%~dp
 Set-Content -Path "$BIN_DIR\git-comsu.bat" -Value $BATCH_CONTENT
 
 Write-Host ""
-Write-Host "Installation completed. You can now run 'git comsu' command."
+Write-Host "Installation completed. You can now run 'git-comsu' command."
 Write-Host "Note: You may need to restart your terminal or run 'refreshenv' for the changes to take effect."
