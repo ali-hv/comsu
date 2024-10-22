@@ -129,6 +129,8 @@ Once installed, you can run **Comsu** from any directory where you have staged c
   ```
 </details>
 
+**If you live in countries restricted by Google, you may want to use a VPN or change your DNS.**
+
 This will generate a list of suggested commit messages based on your changes and you can choose the message you want, then it will automatically commit your changes with that message. If you don't like any of the messages, you can type 'x' to exit.
 
 **Example**
