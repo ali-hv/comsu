@@ -29,21 +29,24 @@
 
 ## Table of Contents
 
-* [Features](#-features)
-* [Installation](#-installation)
-* [Usage](#-usage)
-* [Contributing](#-contributing)
-* [Show your support](#-show-your-support)
+- [Table of Contents](#table-of-contents)
+- [🌟 Features](#-features)
+- [📦 Installation](#-installation)
+- [🚀 Usage](#-usage)
+- [⚙️ Configuration](#️-configuration)
+- [🤝 Contributing](#-contributing)
+- [🌟 Show your support](#-show-your-support)
 
 ---
 
 ## 🌟 Features
 
-- **Automated Commit Messages**: Generate commit messages based on your staged changes using Google's AI model.
-- **Auto Commit**: It can automatically commit your changes with your selected commit message. 
-- **Supports Conventional Commit Types**: Suggestions follow the standard commit types (`feat`, `fix`, `build`, `chore`, etc.).
-- **Easy Setup**: One-command installation to get started.
-- **Customizable Prompts**: Modify the prompt file to tailor the AI suggestions to your specific project needs.
+- **Dual AI Backend Support**: Use either Google Generative AI or Ollama for generating commit messages
+- **Automated Commit Messages**: Generate commit messages based on your staged changes
+- **Auto Commit**: Automatically commit your changes with your selected commit message
+- **Supports Conventional Commit Types**: Suggestions follow the standard commit types (`feat`, `fix`, `build`, `chore`, etc.)
+- **Easy Setup**: One-command installation to get started
+- **Customizable Prompts**: Modify the prompt file to tailor the AI suggestions to your specific project needs
 
 ---
 
@@ -66,14 +69,21 @@ To set up **Comsu** on your Linux system, follow these steps:
     sudo ./install.sh
     ```
 
-3. **Set Your API Key**:
+3. **Set Up AI Backend**:
 
-    Make sure you have your Google AI Studio API key set as an environment variable. If you don’t have one, you can create a free API key [here](https://aistudio.google.com/app/apikey).
+    You can use either Google AI Studio or Ollama:
+
+    **Option 1: Google AI Studio**
+    Set your API key as an environment variable. Create a free API key [here](https://aistudio.google.com/app/apikey).
     ```bash
     export GOOGLE_AI_STUDIO_API_KEY="your_api_key_here"
     ```
 
-   You can add this line to your `~/.bashrc` or `~/.zshrc` to make it persistent.
+    **Option 2: Ollama**
+    If no Google AI Studio API key is set, Comsu will automatically use Ollama. Make sure you:
+    1. Have Ollama installed (https://ollama.com)
+    2. Have at least one model pulled (e.g., `ollama pull llama3.2`)
+    3. Have Ollama running locally
 
 </details>
 
@@ -109,7 +119,8 @@ To set up **Comsu** on your Windows system, follow these steps:
 
 ## 🚀 Usage
 
-Once installed, you can run **Comsu** from any directory where you have staged changes:
+Once installed, you can run **Comsu** from any directory where you have staged changes.
+The tool will automatically use Ollama if no Google AI Studio API key is set.
 
 <details>
   <summary>Linux</summary>
@@ -163,6 +174,8 @@ Committed successfully.
 
 
 The prompt used to generate the commit messages is stored in a file named prompt located at /usr/local/share/git-comsu/prompt. You can modify this file to change the way AI generates the commit messages.
+
+When using Ollama, Comsu will automatically use your most recently downloaded model.
 
 ---
 
